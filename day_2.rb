@@ -1,18 +1,19 @@
 def valid_password?(data)
-  letter_count = data[:password].count(data[:letter])
+  letter_x_present = data[:letter_x] == data[:letter]
+  letter_y_present = data[:letter_y] == data[:letter]
 
-  letter_count >= data[:min] && letter_count <= data[:max]
+  letter_x_present ^ letter_y_present
 end
 
 input = File.readlines('./day_2.in').map do |line|
   line_arr = line.split(' ')
-  min, max = line_arr[0].split('-')
+  pos_x, pos_y = line_arr[0].split('-')
+  password = line_arr[2]
 
   {
     letter: line_arr[1].delete(':'),
-    min: min.to_i,
-    max: max.to_i,
-    password: line_arr[2]
+    letter_x: password[pos_x.to_i - 1],
+    letter_y: password[pos_y.to_i - 1]
   }
 end
 
