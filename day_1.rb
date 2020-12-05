@@ -1,10 +1,13 @@
 input = File.readlines('./day_1.in').map(&:to_i)
 
-found = []
+found = [0, 0, 0]
+
 input.each do |i|
   input.each do |j|
-    found = [i, j] if (i + j) == 2020
+    input.each do |k|
+      found = [i, j, k] if (i + j + k) == 2020
+    end
   end
 end
 
-puts(found.first * found.last)
+puts(found[0] * found[1] * found[2])
