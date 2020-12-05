@@ -1,23 +1,35 @@
 input = File.readlines('./day_3.in').map do |line|
-  (line.chomp * 40).chars
+  (line.chomp * 100).chars
 end
 
-row = 1
-column = 3
-trees = 0
+slopes = [
+  [1, 1],
+  [3, 1],
+  [5, 1],
+  [7, 1],
+  [1, 2]
+]
 
-loop do
-  break if input[row].nil?
+trees_per_slope = slopes.map do |right, down|
+  row = down
+  column = right
+  trees = 0
 
-  if input[row][column] == '#'
-    trees += 1
-    input[row][column] = 'X'
-  else
-    input[row][column] = 'O'
+  loop do
+    break if input[row].nil?
+
+    if input[row][column] == '#'
+      trees += 1
+      input[row][column] = 'X'
+    else
+      input[row][column] = 'O'
+    end
+
+    row += down
+    column += right
   end
 
-  row += 1
-  column += 3
+  trees
 end
 
-puts(trees)
+puts(trees_per_slope.reduce(&:*))
