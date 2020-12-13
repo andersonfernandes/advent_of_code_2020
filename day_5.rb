@@ -25,4 +25,13 @@ seat_ids = boarding_passes.map do |pass|
   (row.first * 8) + col.first
 end
 
-puts(seat_ids.max)
+seat_ids = seat_ids.sort
+seats = seat_ids.sort.map.with_index do |id, index|
+  diff = seat_ids[index + 1] ? seat_ids[index + 1] - id : 1
+
+  { diff: diff, id: id }
+end
+
+missing_seat = seats.select { |seat| seat[:diff] > 1 }
+
+puts(missing_seat.first[:id] + 1)
