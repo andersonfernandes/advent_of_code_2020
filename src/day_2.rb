@@ -5,7 +5,7 @@ def valid_password?(data)
   letter_x_present ^ letter_y_present
 end
 
-input = File.readlines('./day_2.in').map do |line|
+input = File.readlines('inputs/day_2.in').map do |line|
   line_arr = line.split(' ')
   pos_x, pos_y = line_arr[0].split('-')
   password = line_arr[2]

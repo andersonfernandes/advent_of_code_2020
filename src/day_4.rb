@@ -27,7 +27,7 @@ def valid_document?(document)
   validations.reduce(true) { |result, validation| result && validation.call }
 end
 
-documents = File.readlines('./day_4.in').each_with_object([{}]) do |line, users_data|
+documents = File.readlines('inputs/day_4.in').each_with_object([{}]) do |line, users_data|
   if line.chomp.empty?
     users_data << {}
   else

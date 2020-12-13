@@ -1,4 +1,4 @@
-input = File.readlines('./day_1.in').map(&:to_i)
+input = File.readlines('inputs/day_1.in').map(&:to_i)
 
 found = [0, 0, 0]
 

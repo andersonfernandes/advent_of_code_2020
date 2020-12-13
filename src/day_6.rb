@@ -2,7 +2,7 @@ require 'set'
 
 questions = ('a'..'z').to_a.map { |q| [q, 0] }.to_h
 
-groups = File.readlines('./day_6.in').each_with_object([[]]) do |line, groups_data|
+groups = File.readlines('inputs/day_6.in').each_with_object([[]]) do |line, groups_data|
   if line.chomp.empty?
     groups_data << []
   else

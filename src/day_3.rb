@@ -1,4 +1,4 @@
-input = File.readlines('./day_3.in').map do |line|
+input = File.readlines('inputs/day_3.in').map do |line|
   (line.chomp * 100).chars
 end
 

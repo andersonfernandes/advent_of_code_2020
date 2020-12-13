@@ -11,7 +11,7 @@ def get_range_move(range, move)
   moves[move]
 end
 
-boarding_passes = File.readlines('./day_5.in').map { |pass| pass.chomp.chars }
+boarding_passes = File.readlines('inputs/day_5.in').map { |pass| pass.chomp.chars }
 
 seat_ids = boarding_passes.map do |pass|
   row = pass[0..6].reduce(0..127) do |result, move|
